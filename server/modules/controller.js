@@ -6,4 +6,10 @@ async function getModules(req, res) {
   res.send(modules);
 }
 
-module.exports = { getModules };
+async function createModule(req, res) {
+  const moduleData = req.body;
+  const newModule = await new Module(moduleData).save();
+  res.send(newModule);
+}
+
+module.exports = { getModules, createModule };

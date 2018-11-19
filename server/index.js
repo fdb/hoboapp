@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
   res.send('Hello');
 });
 app.get('/modules', modules.getModules);
+app.post('/modules', modules.createModule);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
