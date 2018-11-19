@@ -1,8 +1,16 @@
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
+const mongoose = require('mongoose');
+
+require('dotenv').config();
 
 const modules = require('./modules/controller');
+
+mongoose.connect(
+  process.env.MONGODB_URI,
+  { useNewUrlParser: true }
+);
 
 const app = express();
 app.use(cors());
